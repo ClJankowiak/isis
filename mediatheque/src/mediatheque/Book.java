@@ -2,10 +2,10 @@
 package mediatheque;
 
 
-public class Book extends Item implements Visitable{
+public class Book extends Item {
 	private String author;
 
-	public Book(String author, String title)  {
+	public Book(String author, String title) {
 		super(title);
 		this.author = author;
 	}
@@ -22,9 +22,11 @@ public class Book extends Item implements Visitable{
 	public String toString() {
 		return "Book{" + super.toString() + ", author=" + author + '}';
 	}
-	
-	 public void accept(Visitor v) {
-            v.visit(this);
-        }
 
+	@Override
+	public void accept(ItemVisitor v){
+		v.visit(this);
+	}
+	
+	
 }
