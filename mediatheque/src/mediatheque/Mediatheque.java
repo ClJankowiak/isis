@@ -1,4 +1,3 @@
-
 package mediatheque;
 
 import java.util.LinkedList;
@@ -14,7 +13,9 @@ public class Mediatheque {
 		mediatheque.addItem( new Book("J.R.R. Tolkien", "Le seigneur des anneaux"));
 		mediatheque.addItem( new Book("Philip K. Dick", "Le Maître du haut chateau"));
 		mediatheque.addItem( new CD(12, "Sergeant Peppers"));
-		mediatheque.printOnlyBooks();		
+		mediatheque.printCatalog();
+		mediatheque.printOnlyBooks();
+		mediatheque.printOnlyCDs();
 	}
 	
 	public void addItem(Item i) {
@@ -22,21 +23,24 @@ public class Mediatheque {
 	}
 	
 	public void printCatalog() {
-		for (Item i : items)
-			System.out.println(i);
+		ItemPrinter ip = new ItemPrinter();
+		for(Item i : items){
+			i.accept(ip);
+		}
 	}
 	
 	public void printOnlyBooks() {
-              for (Item i : items){
-               i.accept(i);
-            }
+		BookPrinter bp = new BookPrinter();
+		for(Item i : items){
+			i.accept(bp);
+		}
 	}
 
 	public void printOnlyCDs() {
-            for (Item i : items){
-               i.accept(i);
-            }
-		
-        }
+		CDPrinter cp = new CDPrinter();
+		for(Item i : items){
+			i.accept(cp);
+		}
+	}
 
 }
