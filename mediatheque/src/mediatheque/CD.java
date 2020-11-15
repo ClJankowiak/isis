@@ -1,6 +1,6 @@
 package mediatheque;
 
-public class CD extends Item implements Visitable{
+public class CD extends Item {
 	private int numberOfTracks;
 
 	public CD(int numberOfTracks, String title) {
@@ -20,9 +20,10 @@ public class CD extends Item implements Visitable{
 	public String toString() {
 		return "CD{" + super.toString() + ",numberOfTracks=" + numberOfTracks + '}';
 	}
-	
-	
-	public void accept(Visitor v) {
-            v.visit(this);
-        }
+
+	@Override
+	public void accept(ItemVisitor v){
+		v.visit(this);
+	}
+
 }
