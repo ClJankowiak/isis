@@ -35,7 +35,6 @@ public class Mediatheque {
 
 	public void printOnlyCDs() {
             for (Item i : items){
-                if (i instanceof CD )
                i.accept(i);
             }
 		
