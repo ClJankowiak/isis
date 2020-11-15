@@ -1,6 +1,6 @@
 package mediatheque;
 
-public abstract class Item extends VisitItem implements Visitable{
+public abstract class Item {
 	private String title;
 
 	public Item(String title) {
@@ -10,15 +10,16 @@ public abstract class Item extends VisitItem implements Visitable{
 	public String getTitle() {
 		return title;
 	}
-        
-        public void setTitle(String title) {
-		this.title = title;
-	}
 
 	@Override
 	public String toString() {
 		return "title=" + title ;
 	}
 
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public abstract void accept(ItemVisitor v);
 	
 }
