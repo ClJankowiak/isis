@@ -27,7 +27,6 @@ public class Mediatheque {
 	}
 	
 	public void printOnlyBooks() {
-            Visitor v;
               for (Item i : items){
                i.accept(i);
             }
